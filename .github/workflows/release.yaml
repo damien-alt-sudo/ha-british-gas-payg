@@ -16,11 +16,12 @@ jobs:
 
       - name: Create Zip
         run: |
-          zip -r ha-british-gas-payg.zip ./custom_components/british_gas/
+          cd ./custom_components/british_gas
+          zip -r ha-british-gas-payg.zip .
 
       - name: Upload Zip to Release
         uses: softprops/action-gh-release@v2.2.1
         with:
-          files: ha-british-gas-payg.zip
+          files: ./custom_components/british_gas/ha-british-gas-payg.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
