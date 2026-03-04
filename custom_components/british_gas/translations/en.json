@@ -1,0 +1,63 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "This British Gas PAYG account is already configured.",
+            "reauth_successful": "Reauthentication was successful.",
+            "wrong_account": "The credentials entered belong to a different British Gas PAYG account."
+        },
+        "error": {
+            "cannot_connect": "Could not connect to British Gas. Please check your internet connection and try again.",
+            "invalid_auth": "Invalid email address or password. Please check your credentials and try again.",
+            "unknown": "An unexpected error occurred. Please try again."
+        },
+        "step": {
+            "reauth_confirm": {
+                "data": {
+                    "password": "Password",
+                    "username": "Email address"
+                },
+                "data_description": {
+                    "password": "Your British Gas account password.",
+                    "username": "The email address you use to sign in to britishgas.co.uk."
+                },
+                "description": "Your session has expired. Please re-enter your British Gas credentials.",
+                "title": "Reauthenticate British Gas PAYG"
+            },
+            "user": {
+                "data": {
+                    "password": "Password",
+                    "username": "Email address"
+                },
+                "data_description": {
+                    "password": "Your British Gas account password.",
+                    "username": "The email address you use to sign in to britishgas.co.uk."
+                },
+                "description": "Enter your British Gas online account credentials.",
+                "title": "Connect to British Gas PAYG"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "balance": {
+                "name": "Balance"
+            },
+            "last_updated": {
+                "name": "Last updated"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "scan_interval": "Polling interval (minutes)"
+                },
+                "data_description": {
+                    "scan_interval": "How often to fetch balance updates from British Gas. Minimum 60 minutes."
+                },
+                "title": "British Gas PAYG options"
+            }
+        }
+    }
+}

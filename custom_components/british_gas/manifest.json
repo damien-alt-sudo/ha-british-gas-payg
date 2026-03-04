@@ -1,0 +1,11 @@
+{
+  "domain": "british_gas",
+  "name": "British Gas PAYG",
+  "codeowners": ["@damien-alt-sudo"],
+  "config_flow": true,
+  "documentation": "https://github.com/damien-alt-sudo/ha-british-gas-payg",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/damien-alt-sudo/ha-british-gas-payg/issues",
+  "version": "1.0.0"
+}

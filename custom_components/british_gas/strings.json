@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to British Gas PAYG",
+        "description": "Enter your British Gas online account credentials.",
+        "data": {
+          "username": "Email address",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "The email address you use to sign in to britishgas.co.uk.",
+          "password": "Your British Gas account password."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate British Gas PAYG",
+        "description": "Your session has expired. Please re-enter your British Gas credentials.",
+        "data": {
+          "username": "Email address",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "The email address you use to sign in to britishgas.co.uk.",
+          "password": "Your British Gas account password."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid email address or password. Please check your credentials and try again.",
+      "cannot_connect": "Could not connect to British Gas. Please check your internet connection and try again.",
+      "unknown": "An unexpected error occurred. Please try again."
+    },
+    "abort": {
+      "already_configured": "This British Gas PAYG account is already configured.",
+      "reauth_successful": "Reauthentication was successful.",
+      "wrong_account": "The credentials entered belong to a different British Gas PAYG account."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "British Gas PAYG options",
+        "data": {
+          "scan_interval": "Polling interval (minutes)"
+        },
+        "data_description": {
+          "scan_interval": "How often to fetch balance updates from British Gas. Minimum 60 minutes."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "Balance"
+      },
+      "last_updated": {
+        "name": "Last updated"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+name: Zip Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release-zip:
+    name: Perform Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Zip
+        run: |
+          zip -r ha-british-gas-payg.zip ./custom_components/british_gas/
+
+      - name: Upload Zip to Release
+        uses: softprops/action-gh-release@v2.2.1
+        with:
+          files: ha-british-gas-payg.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
