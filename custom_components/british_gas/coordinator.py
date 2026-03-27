@@ -165,18 +165,24 @@ class BritishGasCoordinator(DataUpdateCoordinator[dict[int, MeterPointBalance]])
 
     async def _async_update_data(self) -> dict[int, MeterPointBalance]:
         """Fetch premises and balances, re-authenticating if needed."""
-        username = self._username
-        password = self._password
-
         if not self.client.has_token:
-            await self._authenticate(username, password)
+            await self._authenticate(self._username, self._password)
 
         try:
             return await self._fetch_all_balances()
         except BritishGasAuthError:
             # Token may have expired — try to re-authenticate once.
             _LOGGER.debug("Token rejected, attempting re-authentication")
-            await self._authenticate(username, password)
+            try:
+                await self.client.authenticate(self._username, self._password)
+            except BritishGasAuthError as err:
+                raise UpdateFailed(
+                    f"Re-authentication failed, will retry next cycle: {err}"
+                ) from err
+            except BritishGasApiError as err:
+                raise UpdateFailed(
+                    f"Could not connect to British Gas during re-authentication: {err}"
+                ) from err
             return await self._fetch_all_balances()
 
     async def _authenticate(self, username: str, password: str) -> None:
